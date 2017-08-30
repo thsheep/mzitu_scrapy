@@ -23,6 +23,7 @@ class Spider(CrawlSpider):
         # max_num为页面最后一张图片的位置
         max_num = response.xpath("descendant::div[@class='main']/div[@class='content']/div[@class='pagenavi']/a[last()-1]/span/text()").extract_first(default="N/A")
         item['name'] = response.xpath("./*//div[@class='main']/div[1]/h2/text()").extract_first(default="N/A")
+        item['url'] = response.url
         for num in range(1, int(max_num)):
             # page_url 为每张图片所在的页面地址
             page_url = response.url + '/' + str(num)

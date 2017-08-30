@@ -34,7 +34,9 @@ class MzituScrapyPipeline(ImagesPipeline):
         :return:
         """
         for img_url in item['image_urls']:
-            yield Request(img_url, meta={'item': item})
+            referer = item['url']
+            yield Request(img_url, meta={'item': item,
+                                         'referer': referer})
 
 
     def item_completed(self, results, item, info):
