@@ -30,7 +30,6 @@ class Spider(CrawlSpider):
             yield Request(page_url, callback=self.img_url)
         item['image_urls'] = self.img_urls
         yield item
-        self.img_urls.clear()
         
 
 
