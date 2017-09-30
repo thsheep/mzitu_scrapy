@@ -29,8 +29,9 @@ class Spider(CrawlSpider):
             page_url = response.url + '/' + str(num)
             yield Request(page_url, callback=self.img_url)
         item['image_urls'] = self.img_urls
-        self.img_urls.clear()
         yield item
+        self.img_urls.clear()
+        
 
 
     def img_url(self, response,):
