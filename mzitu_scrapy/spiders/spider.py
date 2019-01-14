@@ -10,7 +10,7 @@ class Spider(CrawlSpider):
     start_urls = ['http://www.mzitu.com/']
     img_urls = []
     rules = (
-        Rule(LinkExtractor(allow=('http://www.mzitu.com/\d{1,6}',), deny=('http://www.mzitu.com/\d{1,6}/\d{1,6}')), callback='parse_item', follow=True),
+        Rule(LinkExtractor(allow=('https://www.mzitu.com/\d{1,6}',), deny=('https://www.mzitu.com/\d{1,6}/\d{1,6}')), callback='parse_item', follow=True),
     )
 
 
